@@ -41,11 +41,11 @@ def rss_parser(
     Examples:
         >>> xml = '<rss><channel><title>Some RSS Channel</title><link>https://some.rss.com</link><description>Some RSS Channel</description></channel></rss>'
         >>> rss_parser(xml)
-        ["Feed: Some RSS Channel",
-        "Link: https://some.rss.com"]
+        ['feed: Some RSS Channel', 'link: https://some.rss.com', 'description: Some RSS Channel']
         >>> print("\\n".join(rss_parser(xml)))
-        Feed: Some RSS Channel
-        Link: https://some.rss.com
+        feed: Some RSS Channel
+        link: https://some.rss.com
+        description: Some RSS Channel
     """
     root = ET.fromstring(xml)
 
