@@ -1,5 +1,3 @@
-# You shouldn't change  name of function or their arguments
-# but you can change content of the initial functions.
 from argparse import ArgumentParser
 from typing import List, Optional, Sequence
 import json as jsonlib
@@ -65,7 +63,7 @@ def rss_parser(
 
 def main(argv: Optional[Sequence] = None):
     """
-    The main function of your task.
+    The main function with CLI arguments source, --json and --limit
     """
     parser = ArgumentParser(
         prog="rss_reader",

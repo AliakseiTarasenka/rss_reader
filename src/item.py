@@ -8,7 +8,6 @@ class XMLItem:
     def get_items_xml(cls, channel: ET, limit: int) -> dict:
         items = channel.findall('item')
 
-        # If limit is None or greater than the number of items, use all items.
         if limit is None or limit > len(items):
             limit = len(items)
 
