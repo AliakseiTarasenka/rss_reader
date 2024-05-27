@@ -1,6 +1,6 @@
 import unittest
 import xml.etree.ElementTree as ET
-from rss_reader.item import XMLItem
+from rss_reader.src.item import XMLItem
 
 
 class TestXMLItem(unittest.TestCase):

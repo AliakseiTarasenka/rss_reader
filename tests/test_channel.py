@@ -1,7 +1,7 @@
 # import unittest to use its   functionality.
 import unittest
 import xml.etree.ElementTree as ET
-from rss_reader.channel import XMLChannel
+from rss_reader.src.channel import XMLChannel
 
 
 class TestXMLChannel(unittest.TestCase):
