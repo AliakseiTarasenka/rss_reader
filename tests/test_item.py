@@ -11,6 +11,7 @@ class TestXMLItem(unittest.TestCase):
 
     def tearDown(self):
         # is executed after every test in Test Case.
+        # tearDown() and tearDownClass() methods will only be called if the setUp() and setUpClass() succeed
         print('Check {} has finished.'.format(self._testMethodName))
 
     def test_get_items_xml(self):
