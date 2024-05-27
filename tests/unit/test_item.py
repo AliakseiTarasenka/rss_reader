@@ -4,6 +4,15 @@ from rss_reader.item import XMLItem
 
 
 class TestXMLItem(unittest.TestCase):
+
+    def setUp(self):
+        # is executed before every test in Test Case.
+        print('Check {} has started.'.format(self._testMethodName))
+
+    def tearDown(self):
+        # is executed after every test in Test Case.
+        print('Check {} has finished.'.format(self._testMethodName))
+
     def test_get_items_xml(self):
         xml_string = """<channel>
                             <item>

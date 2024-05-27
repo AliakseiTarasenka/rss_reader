@@ -5,6 +5,17 @@ from rss_reader.channel import XMLChannel
 
 
 class TestXMLChannel(unittest.TestCase):
+
+    @classmethod
+    def setUpClass(cls):
+        # is executed once cest case starts.
+        print('Test Case "TestXMLChannel" has started.')
+
+    @classmethod
+    def tearDownClass(cls):
+        # is executed once Test Case finishes.
+        print('Test Case "TestXMLChannel" has finished.')
+
     def test_get_channel_xml(self):
         xml_string = """<channel>
                             <title>Test Channel</title>
