@@ -1,20 +1,29 @@
+"""
+This module contains unit tests for the XMLItem class.
+"""
 import unittest
 import xml.etree.ElementTree as ET
 from rss_reader.src.item import XMLItem
 
 
 class TestXMLItem(unittest.TestCase):
+    """
+    Unit tests for the XMLItem class.
+    """
 
     def setUp(self):
         # is executed before every test in Test Case.
-        print('Check {} has started.'.format(self._testMethodName))
+        print(f'Check {self._testMethodName} has started.')
 
     def tearDown(self):
         # is executed after every test in Test Case.
         # tearDown() and tearDownClass() methods will only be called if the setUp() and setUpClass() succeed
-        print('Check {} has finished.'.format(self._testMethodName))
+        print(f'Check {self._testMethodName} has finished.')
 
     def test_get_items_xml(self):
+        """
+        Test if get_items_xml method correctly parses an XML items into a set of dictionaries.
+        """
         xml_string = """<channel>
                             <item>
                                 <title>Test Item 1</title>

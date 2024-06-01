@@ -16,7 +16,6 @@ class UnhandledException(Exception):
     """
     Exception raised for errors that are not handled.
     """
-    pass
 
 
 def rss_parser(
@@ -37,7 +36,11 @@ def rss_parser(
         Which then can be printed to stdout or written to file as a separate lines.
 
     Examples:
-        >>> xml = '<rss><channel><title>Some RSS Channel</title><link>https://some.rss.com</link><description>Some RSS Channel</description></channel></rss>'
+        >>> xml = '
+        <rss><channel>
+        <title>Some RSS Channel</title>
+        <link>https://some.rss.com</link><description>Some RSS Channel</description>
+        </channel></rss>'
         >>> rss_parser(xml)
         ['feed: Some RSS Channel', 'link: https://some.rss.com', 'description: Some RSS Channel']
         >>> print("\\n".join(rss_parser(xml)))

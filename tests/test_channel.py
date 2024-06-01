@@ -1,4 +1,6 @@
-# import unittest to use its   functionality.
+"""
+This module contains unit tests for the XMLChannel class.
+"""
 import unittest
 import xml.etree.ElementTree as ET
 from rss_reader.src.channel import XMLChannel
@@ -17,6 +19,9 @@ class TestXMLChannel(unittest.TestCase):
         print('Test Case "TestXMLChannel" has finished.')
 
     def test_get_channel_xml(self):
+        """
+        Test if get_channel_xml method correctly parses an XML channel into a dictionary.
+        """
         xml_string = """<channel>
                             <title>Test Channel</title>
                             <link>http://example.com</link>
