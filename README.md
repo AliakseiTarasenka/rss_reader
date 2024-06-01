@@ -120,3 +120,16 @@ For the JSON output, you are looking for the exact names of the tags. Ask for th
 }
 ```
 > Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live. Code for readability. **John F. Woods**
+
+### Containerization:
+
+  Command to run a container from the image:
+```shell
+  docker run rss_reader
+```
+  Output is 2 latest news parsed from a "https://www.yahoo.com/news" site presented in JSON format
+
+  When running the Docker container, you can override the environment variables using the -e flag:
+```shell
+  docker run -e RSS_URL=https://news.yahoo.com/rss -e OUTPUT_FORMAT=json -e LIMIT=2 rss_reader
+```
