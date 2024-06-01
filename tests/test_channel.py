@@ -7,6 +7,9 @@ from rss_reader.src.channel import XMLChannel
 
 
 class TestXMLChannel(unittest.TestCase):
+    """
+    Unit tests for the XMLChannel class.
+    """
 
     @classmethod
     def setUpClass(cls):
