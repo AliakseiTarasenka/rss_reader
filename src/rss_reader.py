@@ -1,3 +1,7 @@
+"""
+This module defines a command-line RSS reader.
+"""
+
 from argparse import ArgumentParser
 from typing import List, Optional, Sequence
 import json as jsonlib
@@ -5,18 +9,14 @@ import xml.etree.ElementTree as ET
 import requests
 from channel import XMLChannel
 from item import XMLItem
+from utils import get_list_of_strings
 
 
 class UnhandledException(Exception):
+    """
+    Exception raised for errors that are not handled.
+    """
     pass
-
-
-def get_list_of_strings(json_data) -> List[str]:
-    str_list = []
-    for item in json_data:
-        for key, value in item.items():
-            str_list.append(f"{key}: {value}")
-    return str_list
 
 
 def rss_parser(
@@ -49,16 +49,16 @@ def rss_parser(
 
     channel = root.find('channel')
     if channel is None:
+        print("The XML does not contain a 'channel' element.")
         return []
-    XMLChannel.get_channel_xml(channel)
-    XMLItem.get_items_xml(channel, limit)
 
-    result = {**XMLChannel.get_channel_xml(channel), **XMLItem.get_items_xml(channel, limit)}
+    channel_xml = XMLChannel.get_channel_xml(channel)
+    items_xml = XMLItem.get_items_xml(channel, limit)
+    result = {**channel_xml, **items_xml}
 
     if json:
         return [jsonlib.dumps(result, indent=2)]
-    else:
-        return get_list_of_strings([result])
+    return get_list_of_strings([result])
 
 
 def main(argv: Optional[Sequence] = None):
@@ -83,7 +83,7 @@ def main(argv: Optional[Sequence] = None):
         print("\n".join(rss_parser(xml, args.limit, args.json)))
         return 0
     except Exception as e:
-        raise UnhandledException(e)
+        raise UnhandledException from e
 
 
 if __name__ == "__main__":

@@ -1,11 +1,20 @@
+"""
+This module defines the XMLItem class for parsing XML item elements.
+"""
 import xml.etree.ElementTree as ET
 
 
 class XMLItem:
+    """
+    A class used to represent an XML Item and its elements.
+    """
     item_elements = ['title', 'author', 'pubDate', 'link', 'category', 'description']
 
     @classmethod
     def get_items_xml(cls, channel: ET, limit: int) -> dict:
+        """
+        Parses XML items into a dictionary.
+        """
         items = channel.findall('item')
 
         if limit is None or limit > len(items):
