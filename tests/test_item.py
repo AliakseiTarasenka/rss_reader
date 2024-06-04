@@ -3,7 +3,7 @@ This module contains unit tests for the XMLItem class.
 """
 import unittest
 import xml.etree.ElementTree as ET
-from rss_reader.src.item import XMLItem
+from src.models import XMLItem
 
 
 class TestXMLItem(unittest.TestCase):

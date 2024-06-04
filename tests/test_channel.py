@@ -3,7 +3,7 @@ This module contains unit tests for the XMLChannel class.
 """
 import unittest
 import xml.etree.ElementTree as ET
-from rss_reader.src.channel import XMLChannel
+from src.models import XMLChannel
 
 
 class TestXMLChannel(unittest.TestCase):

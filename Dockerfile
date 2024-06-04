@@ -21,5 +21,5 @@ ENV RSS_URL=https://news.yahoo.com/rss
 ENV OUTPUT_FORMAT=json
 ENV LIMIT=2
 
-# Run the command to start the application with parameters
+# Run the command within a shell to start the application with parameters
 CMD python rss_reader.py ${RSS_URL} --${OUTPUT_FORMAT} --limit ${LIMIT}

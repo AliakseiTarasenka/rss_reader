@@ -7,9 +7,8 @@ from typing import List, Optional, Sequence
 import json as jsonlib
 import xml.etree.ElementTree as ET
 import requests
-from channel import XMLChannel
-from item import XMLItem
-from utils import get_list_of_strings
+from src.models import XMLItem, XMLChannel
+from src.utils import get_list_of_strings
 
 
 class UnhandledException(Exception):
@@ -36,11 +35,7 @@ def rss_parser(
         Which then can be printed to stdout or written to file as a separate lines.
 
     Examples:
-        >>> xml = '
-        <rss><channel>
-        <title>Some RSS Channel</title>
-        <link>https://some.rss.com</link><description>Some RSS Channel</description>
-        </channel></rss>'
+        >>> xml = '<rss><channel><title>Some RSS Channel</title><link>https://some.rss.com</link><description>Some RSS Channel</description></channel></rss>'
         >>> rss_parser(xml)
         ['feed: Some RSS Channel', 'link: https://some.rss.com', 'description: Some RSS Channel']
         >>> print("\\n".join(rss_parser(xml)))
